@@ -6,6 +6,8 @@ function displayTemperature(response) {
   temperatureElement.innerHTML = temperature;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = response.data.condition.description;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
 }
 
 function search(event) {
