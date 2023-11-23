@@ -13,6 +13,9 @@ function displayTemperature(response) {
   let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
   timeElement.innerHTML = formatDate(date); 
+  let iconElement = document.querySelector("#icon");
+  iconElement.innerHTML = `<img srs="${response.data.condition.icon_url}" class="weather-app-icon"/>`;
+
 }
 
 function search(event) {
