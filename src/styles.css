@@ -72,9 +72,8 @@ main {
 }
 
 .weather-app-icon {
-  position: relative;
-  font-size: 30px;
-  margin-right: 10px;
+  width: 88px;
+  height: 88px;
 }
 
   
