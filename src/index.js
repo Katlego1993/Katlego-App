@@ -10,6 +10,9 @@ function displayTemperature(response) {
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   let windSpeedElement = document.querySelector("#wind-speed");
   windSpeedElement.innerHTML =`${response.data.wind.speed}km/h`;
+  let timeElement = document.querySelector("#time");
+  let date = new Date(response.data.time * 1000);
+  timeElement.innerHTML = formatDate(date); 
 }
 
 function search(event) {
@@ -26,7 +29,6 @@ function search(event) {
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
-  let day = date.getDay();
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -46,8 +48,8 @@ function formatDate(date) {
     "Saturday"
   ];
 
-  let formattedDay = days[day];
-  return `${formattedDay} ${hours}:${minutes}`;
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
 
 let searchForm = document.querySelector("#search-form");
